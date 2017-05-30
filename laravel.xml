@@ -1,0 +1,51 @@
+<templateSet group="laravel">
+  <template name="route" value="Route::$TYPE$('$NAME$',['uses'=&gt;'$CONTROLLER$@$ACTION$','as'=&gt;'$NAME$']);" description="Laravel get route" toReformat="true" toShortenFQNames="true">
+    <variable name="TYPE" expression="complete()" defaultValue="get" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONTROLLER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ACTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP Expression" value="true" />
+      <option name="PHP Statement" value="true" />
+    </context>
+  </template>
+  <template name="linput" value="&lt;div class=&quot;form-group {{($errors-&gt;has('$NAME$')?'has-danger':'')}}&quot;&gt;&#10;    &lt;label for=&quot;$NAME$&quot;&gt;$LABEL$&lt;/label&gt;&#10;    &lt;input name=&quot;$NAME$&quot; type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;$NAME$&quot; aria-describedby=&quot;$NAME$&quot; value={{old('$NAME$')}}&gt;&#10;    @if($errors-&gt;has('$NAME$'))&#10;        &lt;div class=&quot;form-control-feedback&quot;&gt;{{$errors-&gt;first('$NAME$')}}&lt;/div&gt;&#10;    @endif&#10;&lt;/div&gt;" description="input field for laravel form and bs4" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="capitalize(underscoresToSpaces(NAME))" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="lpassword" value="&lt;div class=&quot;form-group {{($errors-&gt;has('$NAME$')?'has-danger':'')}}&quot;&gt;&#10;    &lt;label for=&quot;$NAME$&quot;&gt;$LABEL$&lt;/label&gt;&#10;    &lt;input name=&quot;$NAME$&quot; type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;$NAME$&quot; aria-describedby=&quot;$NAME$&quot; value={{old('$NAME$')}}&gt;&#10;    @if($errors-&gt;has('$NAME$'))&#10;        &lt;div class=&quot;form-control-feedback&quot;&gt;{{$errors-&gt;first('$NAME$')}}&lt;/div&gt;&#10;    @endif&#10;&lt;/div&gt;" description="password field for laravel form and bs4" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="capitalize(underscoresToSpaces(NAME))" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="lemail" value="&lt;div class=&quot;form-group {{($errors-&gt;has('$NAME$')?'has-danger':'')}}&quot;&gt;&#10;    &lt;label for=&quot;$NAME$&quot;&gt;$LABEL$&lt;/label&gt;&#10;    &lt;input name=&quot;$NAME$&quot; type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;$NAME$&quot; aria-describedby=&quot;$NAME$&quot; value={{old('$NAME$')}}&gt;&#10;    @if($errors-&gt;has('$NAME$'))&#10;        &lt;div class=&quot;form-control-feedback&quot;&gt;{{$errors-&gt;first('$NAME$')}}&lt;/div&gt;&#10;    @endif&#10;&lt;/div&gt;" description="email field  for laravel form and bs4" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="capitalize(underscoresToSpaces(NAME))" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="lmulti" value="&lt;div class=&quot;form-group {{($errors-&gt;has('$NAME$')?'has-danger':'')}}&quot;&gt;&#10;    &lt;label for=&quot;$NAME$&quot;&gt;$LABEL$&lt;/label&gt;&#10;    &lt;select name=&quot;$NAME$&quot; id=&quot;$NAME$&quot; multiple&gt;&#10;        @foreach($COLLECTION$ as $SINGLE$)&#10;            &lt;option value=&quot;{{$SINGLE$-&gt;id}}&quot; {{in_array($SINGLE$-&gt;id,old('roles'))?'selected':''}}&gt;{{$SINGLE$-&gt;name}}&lt;/option&gt;&#10;        @endforeach&#10;     &lt;/select&gt;&#10;     @if($errors-&gt;has('$NAME$'))&#10;        &lt;div class=&quot;form-control-feedback&quot;&gt;{{$errors-&gt;first('$NAME$')}}&lt;/div&gt;&#10;     @endif&#10;&lt;/div&gt;" description="multi select field for laravel form and bs4" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="capitalize(underscoresToSpaces(NAME))" defaultValue="" alwaysStopAt="false" />
+    <variable name="COLLECTION" expression="phpVar" defaultValue="" alwaysStopAt="false" />
+    <variable name="SINGLE" expression="phpVar" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="lselect" value="&lt;div class=&quot;form-group {{($errors-&gt;has('$NAME$')?'has-danger':'')}}&quot;&gt;&#10;    &lt;label for=&quot;$NAME$&quot;&gt;$LABEL$&lt;/label&gt;&#10;    &lt;select name=&quot;$NAME$&quot; id=&quot;$NAME$&quot;&gt;&#10;        @foreach($COLLECTION$ as $SINGLE$)&#10;            &lt;option value=&quot;{{$SINGLE$-&gt;id}}&quot; {{$SINGLE$-&gt;id==old('roles')?'selected':''}}&gt;{{$SINGLE$-&gt;name}}&lt;/option&gt;&#10;        @endforeach&#10;     &lt;/select&gt;&#10;     @if($errors-&gt;has('$NAME$'))&#10;        &lt;div class=&quot;form-control-feedback&quot;&gt;{{$errors-&gt;first('$NAME$')}}&lt;/div&gt;&#10;     @endif&#10;&lt;/div&gt;" description="select field for laravel form and bs4" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LABEL" expression="capitalize(underscoresToSpaces(NAME))" defaultValue="" alwaysStopAt="false" />
+    <variable name="COLLECTION" expression="phpVar" defaultValue="" alwaysStopAt="false" />
+    <variable name="SINGLE" expression="phpVar" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+</templateSet>
